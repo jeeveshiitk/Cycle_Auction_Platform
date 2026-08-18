@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:5000');
+const socket = io('[https://cycle-auction-platform.onrender.com](https://cycle-auction-platform.onrender.com)');
 
 export default function LiveAuction() {
     const { id } = useParams();
@@ -17,7 +17,7 @@ export default function LiveAuction() {
     const userName = localStorage.getItem('userName');
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/cycles')
+        fetch('[https://cycle-auction-platform.onrender.com](https://cycle-auction-platform.onrender.com)/api/cycles')
             .then(res => res.json())
             .then(data => {
                 const currentCycle = data.find(c => c._id === id);
