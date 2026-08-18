@@ -15,7 +15,7 @@ export default function AddCycle() {
         const token = localStorage.getItem('token');
 
         try {
-            const response = await fetch('[https://cycle-auction-platform.onrender.com](https://cycle-auction-platform.onrender.com)/api/cycles/add', {
+            const response = await fetch('https://cycle-auction-platform.onrender.com/api/cycles/add/api/cycles/add', {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',

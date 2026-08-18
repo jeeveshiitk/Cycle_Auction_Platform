@@ -10,7 +10,7 @@ export default function Login() {
         e.preventDefault(); // Prevents the page from refreshing
         
         try {
-            const response = await fetch('[https://cycle-auction-platform.onrender.com](https://cycle-auction-platform.onrender.com)/api/auth/login', {
+            const response = await fetch('https://cycle-auction-platform.onrender.com/api/cycles/add/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
