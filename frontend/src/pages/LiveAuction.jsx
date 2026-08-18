@@ -112,7 +112,7 @@ export default function LiveAuction() {
                         onChange={(e) => setBidAmount(e.target.value)}
                         required
                         disabled={isEnded} 
-                        style={{ padding: '10px', flex: 1, fontSize: '16px', backgroundColor: isEnded ? '#eee' : 'white' }}
+                        style={{ padding: '10px', flex: 1, fontSize: '16px', backgroundColor: isEnded ? '#eee' : 'white', color: 'black' }}
                     />
                     <button 
                         type="submit" 
