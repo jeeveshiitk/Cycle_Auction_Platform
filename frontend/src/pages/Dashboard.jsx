@@ -13,7 +13,7 @@ export default function Dashboard() {
         const fetchCycles = async () => {
             try {
                 // Fetch the list of cycles from the backend catalog
-                const response = await fetch('https://cycle-auction-platform.onrender.com/api/cycles/add/api/cycles');
+                const response = await fetch('https://cycle-auction-platform.onrender.com/api/cycles');
                 const data = await response.json();
                 setCycles(data);
                 setLoading(false);

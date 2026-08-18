@@ -17,7 +17,7 @@ export default function LiveAuction() {
     const userName = localStorage.getItem('userName');
 
     useEffect(() => {
-        fetch('https://cycle-auction-platform.onrender.com/api/cycles/add/api/cycles')
+        fetch('https://cycle-auction-platform.onrender.com/api/cycles')
             .then(res => res.json())
             .then(data => {
                 const currentCycle = data.find(c => c._id === id);
