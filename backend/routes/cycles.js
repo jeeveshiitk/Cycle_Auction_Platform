@@ -7,14 +7,19 @@ const verifyToken = require('../middleware/authMiddleware'); // Import our bounc
 // Notice how we put "verifyToken" in the middle? That's the bouncer in action!
 router.post('/add', verifyToken, async (req, res) => {
     try {
-        const { brand, condition, basePrice } = req.body;
+        // NEW: We now expect durationHours from the frontend
+        const { brand, condition, basePrice, durationHours } = req.body;
 
-        // Create the new cycle. We get the seller's ID directly from the verified token!
+        // NEW: Calculate the exact end time (Current Time + Hours converted to milliseconds)
+        const hoursToAdd = durationHours ? Number(durationHours) : 24; // Default to 24 hours if missing
+        const endTime = new Date(Date.now() + (hoursToAdd * 60 * 60 * 1000));
+
         const newCycle = new Cycle({
             seller: req.user.id, 
             brand,
             condition,
-            basePrice
+            basePrice,
+            endTime // Save the calculated end time
         });
 
         await newCycle.save();

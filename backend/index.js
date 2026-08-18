@@ -40,6 +40,9 @@ io.on('connection', (socket) => {
             if (!cycle) {
                 return socket.emit('bid_error', { message: 'Cycle not found!' });
             }
+            if (new Date() > new Date(cycle.endTime)) {
+                return socket.emit('bid_error', { message: 'Bidding closed! This auction has ended.' });
+            }
 
             // Validate the bid
             if (data.bidAmount <= cycle.currentHighestBid || data.bidAmount < cycle.basePrice) {
